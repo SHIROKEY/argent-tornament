@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -13,8 +14,9 @@ namespace Assets.Scripts
         public GameObject TrailPrefab;
         public GameObject FloatingTextPrefab;
 
-
         public Vector2 PointerPositionAmendment { get; private set; }
+
+        public float KillingScore { get; set; }
 
         private RectTransform _sliceControllerTransform;
         private VictimManager _victimManager;

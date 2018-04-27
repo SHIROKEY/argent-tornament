@@ -5,16 +5,13 @@ namespace Assets.Scripts
 {
     public class Armor : DamageableObject
     {
-        public float DamageAbsorbationAmount;
-
-        public override void OnDamageTaken(float amount)
-        {
-
-        }
+        public NumberTypeDivider AbsorbtionType = NumberTypeDivider.Constant;
+        public float DamageAbsorbationAmount = 0;
+        public float AbsorbtionPerLevel = 0;
 
         public override void TakeDamage(Pointer pointer, Vector2 pos)
         {
-            pointer.DecreaseDamage(DamageAbsorbationAmount);
+            pointer.DecreaseDamage(DamageAbsorbationAmount/(int)AbsorbtionType);
         }
     }
 }
