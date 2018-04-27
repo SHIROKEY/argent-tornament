@@ -27,7 +27,7 @@ namespace Assets.Scripts
         public override void TakeDamage(Pointer pointer, Vector2 point)
         {
             _animator.Play("TakingDamage");
-            var amount = (float)Math.Round(pointer.GetDamage(), 1);
+            var amount = Mathf.Round(pointer.GetDamage());
             var floatingtext = Instantiate(_elementManager.FloatingTextPrefab, _elementManager.EnemyLayer);
             floatingtext.GetComponent<Text>().text = amount.ToString();
             floatingtext.GetComponent<RectTransform>().anchoredPosition = point - _elementManager.PointerPositionAmendment;

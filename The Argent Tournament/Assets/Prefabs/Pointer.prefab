@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef4ccd1dc89c6e4c931d036319ac2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamagePerStaminaPoint: 0.5
+  DamagePerStaminaPoint: 5
   StaminaConsumePerLengthPoint: 0.01
 --- !u!224 &224663169796671340
 RectTransform:
