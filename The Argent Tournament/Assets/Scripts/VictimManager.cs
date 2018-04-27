@@ -35,7 +35,7 @@ namespace Assets.Scripts
 
         private int GetCurrentLevel()
         {
-            var previousLevels = _levelingGaps.Where(x => x < _elementManager.KillingScore).ToArray();
+            var previousLevels = _levelingGaps.Where(x => x <= _elementManager.KillingScore).ToArray();
             var level = _currentEnemyLevel < previousLevels.Length ? previousLevels.Length : _currentEnemyLevel;
             return level;
         }
@@ -43,7 +43,8 @@ namespace Assets.Scripts
         private void LevelUp(Enemy enemy)
         {
             enemy.MaxHealth += enemy.HealthPerLevel * _currentEnemyLevel;
-            enemy.DisplayName = enemy.DisplayName + (_currentEnemyLevel + 1);
+            enemy.KillingPoints += enemy.PointsPerLevel * _currentEnemyLevel;
+            enemy.DisplayName = enemy.DisplayName + " (lvl-"+(_currentEnemyLevel + 1)+")";
         }
     }
 }

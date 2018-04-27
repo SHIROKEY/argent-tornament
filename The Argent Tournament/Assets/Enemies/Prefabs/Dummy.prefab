@@ -153,7 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c132c579551ad754785711c7293a5a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AbsorbtionType: 1
   DamageAbsorbationAmount: 3
+  AbsorbtionPerLevel: 0
 --- !u!114 &114379231960208366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,8 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6977ed9d04adec34cbca3bc1e569faf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
   DisplayName: Wooden Dummy
+  MaxHealth: 25
+  KillingPoints: 1
+  HealthPerLevel: 25
+  PointsPerLevel: 1
 --- !u!222 &222103530833472144
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -180,7 +185,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1760882152659764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -156.5, y: 290, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224874637486269458}
@@ -198,7 +203,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1570329194243680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 64, y: 300, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224833290757726428}

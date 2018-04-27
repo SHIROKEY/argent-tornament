@@ -13,6 +13,7 @@ namespace Assets.Scripts
         public float KillingPoints = 0;
 
         public float HealthPerLevel = 0;
+        public float PointsPerLevel = 0;
 
         private Animator _animator;
         private ElementManager _elementManager;
