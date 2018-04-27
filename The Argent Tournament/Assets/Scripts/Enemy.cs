@@ -18,6 +18,8 @@ namespace Assets.Scripts
         private Animator _animator;
         private ElementManager _elementManager;
 
+        private bool _dead;
+
         private void Start()
         {
             _elementManager = FindObjectOfType<ElementManager>();
@@ -26,15 +28,19 @@ namespace Assets.Scripts
 
         public override void TakeDamage(Pointer pointer, Vector2 point)
         {
-            _animator.Play("TakingDamage");
-            var amount = (float)Math.Round(pointer.GetDamage(), 1);
-            var floatingtext = Instantiate(_elementManager.FloatingTextPrefab, _elementManager.EnemyLayer);
-            floatingtext.GetComponent<Text>().text = amount.ToString();
-            floatingtext.GetComponent<RectTransform>().anchoredPosition = point - _elementManager.PointerPositionAmendment;
-            pointer.DecreaseDamage(amount);
-            if (_elementManager.HealthBar.TryToKill(amount))
+            if (!_dead)
             {
-                _animator.Play("Death");
+                _animator.Play("TakingDamage");
+                var amount = (float)Math.Round(pointer.GetDamage(), 1);
+                var floatingtext = Instantiate(_elementManager.FloatingTextPrefab, _elementManager.EnemyLayer);
+                floatingtext.GetComponent<Text>().text = amount.ToString();
+                floatingtext.GetComponent<RectTransform>().anchoredPosition = point - _elementManager.PointerPositionAmendment;
+                pointer.DecreaseDamage(amount);
+                _dead = _elementManager.HealthBar.IsOutOfHP(amount);
+                if (_dead)
+                {
+                    _animator.Play("Death");
+                }
             }
         }
 

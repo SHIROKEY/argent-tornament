@@ -20,7 +20,7 @@ public class EnemyHealthBar : Bar
         Increase(MaxAmount);
     }
 
-    public bool TryToKill(float amount)
+    public bool IsOutOfHP(float amount)
     {
         var remainingHP = Decrease(amount);
         if (remainingHP <= 0)
