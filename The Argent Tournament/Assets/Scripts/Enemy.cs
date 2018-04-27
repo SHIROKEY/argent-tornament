@@ -42,7 +42,7 @@ namespace Assets.Scripts
         public void OnDeath()
         {
             Destroy(gameObject);
-            _elementManager.SpawnNextVictim(0);
+            _elementManager.SpawnNextVictim();
         }
     }
 }

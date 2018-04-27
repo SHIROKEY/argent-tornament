@@ -17,12 +17,11 @@ namespace Assets.Scripts
             {
                 new EnemyLevel(0,0) 
             };
-
         }
 
-        public GameObject GetNextEnemy(int level)
+        public GameObject GetNextEnemy()
         {
-            var enemyNumber = Random.Range(_enemyLevelsMap[level].MinElement, _enemyLevelsMap[level].MaxElement);
+            var enemyNumber = Random.Range(0, Victims.Length);
             var enemy = Instantiate(Victims[enemyNumber], _elementManager.EnemyLayer);
             return enemy;
         }

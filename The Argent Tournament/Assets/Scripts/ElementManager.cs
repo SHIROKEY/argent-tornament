@@ -26,9 +26,9 @@ namespace Assets.Scripts
             _victimManager = EnemyLayer.GetComponent<VictimManager>();
         }
 
-        public void SpawnNextVictim(int level)
+        public void SpawnNextVictim()
         {
-            var victim = _victimManager.GetNextEnemy(level).GetComponent<Enemy>();
+            var victim = _victimManager.GetNextEnemy().GetComponent<Enemy>();
             HealthBar.Refresh(victim.MaxHealth, victim.DisplayName);
         }
     }
