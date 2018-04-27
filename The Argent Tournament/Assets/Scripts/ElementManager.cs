@@ -28,10 +28,14 @@ namespace Assets.Scripts
             _victimManager = EnemyLayer.GetComponent<VictimManager>();
         }
 
+        public void StartTheGame()
+        {
+            _victimManager.CreateFirstEnemy();
+        }
+
         public void SpawnNextVictim()
         {
-            var victim = _victimManager.GetNextEnemy().GetComponent<Enemy>();
-            HealthBar.Refresh(victim.MaxHealth, victim.DisplayName);
+            _victimManager.SpawnNextEnemy();
         }
     }
 }

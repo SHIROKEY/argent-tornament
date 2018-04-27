@@ -11,6 +11,7 @@ public class EnemyHealthBar : Bar
         _enemyName = GetComponentInChildren<Name>();
         InitializeIndication();
         Increase(MaxAmount);
+        FindObjectOfType<ElementManager>().StartTheGame();
     }
 
     public void Refresh(float maxAmount, string newName)
