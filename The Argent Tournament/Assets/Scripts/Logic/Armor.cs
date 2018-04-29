@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Assets.Scripts.Abstract;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Logic
 {
     public class Armor : DamageableObject
     {

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.Scripts;
+using Assets.Scripts.Abstract;
 
 public class EnemyHealthBar : Bar
 {

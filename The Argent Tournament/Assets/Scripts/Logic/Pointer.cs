@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Logic
 {
     public class Pointer: MonoBehaviour, IDisposable
     {

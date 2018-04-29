@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using Assets.Scripts.Abstract;
 
-namespace Assets.Scripts.Logic
+namespace Assets.Scripts
 {
     class Enemy : DamageableObject
     {

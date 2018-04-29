@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Logic;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Abstract
 {
     public abstract class DamageableObject : MonoBehaviour
     {

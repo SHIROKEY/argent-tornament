@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace Assets.Scripts
 {
-    public class SliceController : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IPointerUpHandler
+    public class SliceManager : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IPointerUpHandler
     {
         public int MaxTouchesCount;
 

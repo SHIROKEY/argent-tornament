@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.UI;
+using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Abstract
 {
     public abstract class Bar : MonoBehaviour
     {

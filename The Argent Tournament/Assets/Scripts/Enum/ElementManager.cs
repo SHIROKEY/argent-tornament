@@ -37,5 +37,6 @@ namespace Assets.Scripts
         {
             _victimManager.SpawnNextEnemy();
         }
+
     }
 }
