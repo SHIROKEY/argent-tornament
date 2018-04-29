@@ -885,12 +885,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelingGaps:
-  - 3
-  - 6
-  - 9
+  - 10
+  - 30
+  - 50
   EnemyDifficulty: 1
   Enemies:
-  - {fileID: 0}
+  - {fileID: 1570329194243680, guid: 3cf18e023bf1df849afb103154e7477f, type: 2}
 --- !u!1 &1057941744
 GameObject:
   m_ObjectHideFlags: 0

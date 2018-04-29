@@ -43,6 +43,11 @@ namespace Assets.Scripts.Management
             }
         }
 
+        private void OnPostRender()
+        {
+            Debug.Log("Scene is rendered!!!");
+        }
+
         private void Awake()
         {
             Debug.Log(this.GetType() + " loaded");

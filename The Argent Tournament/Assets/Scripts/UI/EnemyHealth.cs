@@ -13,17 +13,12 @@ namespace Assets.Scripts.UI
 
         public void Awake()
         {
+            _enemyName = GetComponentInChildren<Name>();
+            InitializeIndication();
             _elementManager = FindObjectOfType<ElementManager>();
             _elementManager.EnemyHealthBar = this;
             _elementManager.LoadProgress = 1;
             Debug.Log(this.GetType() + " loaded");
-        }
-
-        private void Start()
-        {
-            _enemyName = GetComponentInChildren<Name>();
-            InitializeIndication();
-            Increase(MaxAmount);
         }
 
         public void Refresh(float maxAmount, string newName)

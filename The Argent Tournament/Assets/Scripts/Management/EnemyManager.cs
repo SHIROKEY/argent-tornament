@@ -10,7 +10,6 @@ namespace Assets.Scripts.Management
 {
     public class EnemyManager : MonoBehaviour, IRegistrable
     {
-        public float[] _levelingGaps = new float[0];
         public Difficulty EnemyDifficulty = Difficulty.Dark_Souls;
 
         public GameObject[] Enemies;
@@ -32,14 +31,6 @@ namespace Assets.Scripts.Management
             Debug.Log(this.GetType() + " loaded");
         }
 
-        public void Start()
-        {
-            for (int i=0;i<_levelingGaps.Length;i++)
-            {
-                _levelingGaps[i] *= (int)EnemyDifficulty;
-            }
-        }       
-
         public GameObject GetNextEnemy()
         {
             return CreateEnemy(Random.Range(0, Enemies.Length));
@@ -60,8 +51,13 @@ namespace Assets.Scripts.Management
 
         private int GetCurrentLevel()
         {
-            var previousLevels = _levelingGaps.Where(x => x <= _elementManager.KillingScore).ToArray();
-            var level = _currentEnemyLevel < previousLevels.Length ? previousLevels.Length : _currentEnemyLevel;
+            var level = _currentEnemyLevel;
+            var levelBound = (int)EnemyDifficulty * Mathf.Exp(_currentEnemyLevel);
+            while (levelBound<_elementManager.KillingScore)
+            {
+                level++;
+                levelBound  = (int)EnemyDifficulty * Mathf.Exp(level);
+            }
             return level;
         }
 

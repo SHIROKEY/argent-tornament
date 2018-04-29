@@ -11,10 +11,6 @@ namespace Assets.Scripts.UI
         private void Awake()
         {
             Debug.Log(this.GetType() + " loaded");
-        }
-
-        private void Start()
-        {
             _text = GetComponentInChildren<Text>();
         }
 
