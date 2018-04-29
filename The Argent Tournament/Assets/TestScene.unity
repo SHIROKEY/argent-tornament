@@ -884,14 +884,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399dbfe0a2a5a764cab1d2292ae8e1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemySpawnDelay: 0
   _levelingGaps:
   - 3
   - 6
   - 9
   EnemyDifficulty: 1
-  Victims:
-  - {fileID: 1570329194243680, guid: 3cf18e023bf1df849afb103154e7477f, type: 2}
+  Enemies:
+  - {fileID: 0}
 --- !u!1 &1057941744
 GameObject:
   m_ObjectHideFlags: 0

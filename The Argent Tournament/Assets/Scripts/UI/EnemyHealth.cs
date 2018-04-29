@@ -6,15 +6,16 @@ using Assets.Scripts.Management;
 
 namespace Assets.Scripts.UI
 {
-    public class EnemyHealth : Bar
+    public class EnemyHealth : Bar, IRegistrable
     {
         private Name _enemyName;
         private ElementManager _elementManager;
 
-        private void Awake()
+        public void Awake()
         {
             _elementManager = FindObjectOfType<ElementManager>();
             _elementManager.EnemyHealthBar = this;
+            _elementManager.LoadProgress = 1;
             Debug.Log(this.GetType() + " loaded");
         }
 

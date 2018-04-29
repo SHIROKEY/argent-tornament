@@ -12,7 +12,7 @@ namespace Assets.Scripts.Logic
 
         public float AbsorbtionPercent = 0;
 
-        private void Awake()
+        public void Awake()
         {
             Debug.Log(this.GetType() + " loaded");
         }

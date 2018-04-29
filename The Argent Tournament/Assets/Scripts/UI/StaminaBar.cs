@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.UI
 {
-    public class StaminaBar : Bar
+    public class StaminaBar : Bar, IRegistrable
     {
         public float TickTime = 0;
         public float RecoverStaminaPerTick = 0;
@@ -15,10 +15,11 @@ namespace Assets.Scripts.UI
         private Coroutine _currentAction;
         private ElementManager _elementManager;
 
-        private void Awake()
+        public void Awake()
         {
             _elementManager = FindObjectOfType<ElementManager>();
             _elementManager.StaminaBar = this;
+            _elementManager.LoadProgress = 1;
             Debug.Log(this.GetType() + " loaded");
         }
 

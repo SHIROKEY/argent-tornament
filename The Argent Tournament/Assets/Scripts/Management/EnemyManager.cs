@@ -4,16 +4,16 @@ using System.Linq;
 using System.Collections;
 using Assets.Scripts.Enum;
 using Assets.Scripts.Logic;
+using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.Management
 {
-    public class VictimManager : MonoBehaviour
+    public class EnemyManager : MonoBehaviour, IRegistrable
     {
-        public int EnemySpawnDelay = 0;
         public float[] _levelingGaps = new float[0];
         public Difficulty EnemyDifficulty = Difficulty.Dark_Souls;
 
-        public GameObject[] Victims;
+        public GameObject[] Enemies;
 
         private ElementManager _elementManager;
 
@@ -21,37 +21,42 @@ namespace Assets.Scripts.Management
         private int _remainingDelay = 0;
 
         private bool _waiting;
+        private int _enemySpawnDelay = 0;
 
-        private void Awake()
+        public void Awake()
         {
             _elementManager = FindObjectOfType<ElementManager>();
             _elementManager.EnemyLayer = gameObject.transform;
-            _elementManager.VictimManager = this;
+            _elementManager.EnemyManager = this;
+            _elementManager.LoadProgress = 2;
             Debug.Log(this.GetType() + " loaded");
         }
 
-        private void Start()
+        public void Start()
         {
             for (int i=0;i<_levelingGaps.Length;i++)
             {
                 _levelingGaps[i] *= (int)EnemyDifficulty;
             }
-        }
-
-        public void CreateFirstEnemy()
-        {
-            var victim = Instantiate(Victims[0], _elementManager.EnemyLayer).GetComponent<Enemy>();
-            _elementManager.EnemyHealthBar.Refresh(victim.MaxHealth, victim.DisplayName + " (lvl-1)");
-        }
+        }       
 
         public GameObject GetNextEnemy()
         {
+            return CreateEnemy(Random.Range(0, Enemies.Length));
+        }
+
+        public GameObject GetNextEnemy(int min, int max)
+        {
+            return CreateEnemy(Random.Range(min, max));
+        }
+
+        private GameObject CreateEnemy(int enemyNumber)
+        {
             _currentEnemyLevel = GetCurrentLevel();
-            var enemyNumber = Random.Range(0, Victims.Length);
-            var enemy = Instantiate(Victims[enemyNumber], _elementManager.EnemyLayer);
+            var enemy = Instantiate(Enemies[enemyNumber], _elementManager.EnemyLayer);
             LevelUp(enemy.GetComponent<Enemy>());
             return enemy;
-        }
+        } 
 
         private int GetCurrentLevel()
         {
@@ -67,22 +72,32 @@ namespace Assets.Scripts.Management
             enemy.DisplayName = enemy.DisplayName + " (lvl-"+(_currentEnemyLevel + 1)+")";
         }
 
-        public void SpawnNextEnemy()
+        public void SpawnNextEnemy(int secDelay)
         {
+            _enemySpawnDelay = secDelay;
             StartCoroutine(WaitForSecondBeforeSpawn());
         }
 
         private void Spawn()
         {
-            var victim = GetNextEnemy().GetComponent<Enemy>();
-            _elementManager.EnemyHealthBar.Refresh(victim.MaxHealth, victim.DisplayName);
+            Enemy enemy;
+            if (_currentEnemyLevel < 1)
+            {
+                enemy = GetNextEnemy(0, 0).GetComponent<Enemy>();
+            }
+            else
+            {
+                enemy = GetNextEnemy().GetComponent<Enemy>();
+                
+            }
+            _elementManager.EnemyHealthBar.Refresh(enemy.MaxHealth, enemy.DisplayName);
         }
 
         private IEnumerator WaitForSecondBeforeSpawn()
         {
             if (!_waiting)
             {
-                _remainingDelay = EnemySpawnDelay;
+                _remainingDelay = _enemySpawnDelay;
                 _waiting = true;
             }
             if (_remainingDelay > 0)

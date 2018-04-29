@@ -56,7 +56,7 @@ namespace Assets.Scripts
         {
             Destroy(gameObject);
             _elementManager.KillingScore += KillingPoints;
-            _elementManager.SpawnNextVictim();
+            _elementManager.SpawnNextEnemy();
         }
     }
 }

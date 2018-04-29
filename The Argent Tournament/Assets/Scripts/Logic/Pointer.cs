@@ -47,10 +47,10 @@ namespace Assets.Scripts.Logic
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            var victim = collision.gameObject.GetComponent<DamageableObject>();
-            if (victim != null)
+            var enemy = collision.gameObject.GetComponent<DamageableObject>();
+            if (enemy != null)
             {
-                victim.TakeDamage(this, GetComponent<RectTransform>().anchoredPosition);
+                enemy.TakeDamage(this, GetComponent<RectTransform>().anchoredPosition);
             }
         }
     }

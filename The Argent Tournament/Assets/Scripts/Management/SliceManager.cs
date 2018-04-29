@@ -3,10 +3,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.Management
 {
-    public class SliceManager : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IPointerUpHandler
+    public class SliceManager : MonoBehaviour, IRegistrable, IPointerDownHandler, IBeginDragHandler, IDragHandler, IPointerUpHandler
     {
         public int MaxTouchesCount;
 
@@ -14,12 +15,13 @@ namespace Assets.Scripts.Management
 
         private Dictionary<int, TouchPoint> _startPoints;
 
-        private void Awake()
+        public void Awake()
         {
             var retctTransform = gameObject.GetComponent<RectTransform>();
             _elementManager = FindObjectOfType<ElementManager>();
             _elementManager.SliceControllerTransform = retctTransform;
             _elementManager.PointerPositionAmendment = retctTransform.anchoredPosition;
+            _elementManager.LoadProgress = 2;
             Debug.Log(this.GetType() + " loaded");
         }
 

@@ -8,27 +8,54 @@ using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.Management
 {
-    public class ElementManager : GameManager
+    public class ElementManager : MonoBehaviour
     {
-        public override Transform EnemyLayer { get; set; }
-        public override StaminaBar StaminaBar { get; set; }
-        public override EnemyHealth EnemyHealthBar { get; set; }
-        public override RectTransform SliceControllerTransform { get; set; }
-        public override VictimManager VictimManager { get; set; }
+        public GameObject PointerPrefab;
+        public GameObject TrailPrefab;
+        public GameObject FloatingTextPrefab;
+
+        public Transform EnemyLayer { get; set; }
+        public StaminaBar StaminaBar { get; set; }
+        public EnemyHealth EnemyHealthBar { get; set; }
+
+        public RectTransform SliceControllerTransform { get; set; }
+        public EnemyManager EnemyManager { get; set; }
 
         public Vector2 PointerPositionAmendment { get; set; }
 
         public float KillingScore { get; set; }
+
+        private int _loadProgress;
+
+        public int LoadProgress
+        {
+            private get
+            {
+                return _loadProgress;
+            }
+            set
+            {
+                _loadProgress += value;
+                if (_loadProgress == 6)
+                {
+                    StartGame();
+                }
+            }
+        }
 
         private void Awake()
         {
             Debug.Log(this.GetType() + " loaded");
         }
 
-        public void SpawnNextVictim()
+        public void SpawnNextEnemy()
         {
-            VictimManager.SpawnNextEnemy();
+            EnemyManager.SpawnNextEnemy(0);
         }
 
+        public void StartGame()
+        {
+            SpawnNextEnemy();
+        }
     }
 }

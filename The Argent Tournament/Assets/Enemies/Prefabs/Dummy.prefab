@@ -204,14 +204,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1570329194243680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6977ed9d04adec34cbca3bc1e569faf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 18d2404490a97be40ba4afcabd7ef292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayName: Wooden Dummy
-  MaxHealth: 100
-  KillingPoints: 1
-  HealthPerLevel: 50
-  PointsPerLevel: 1
+  DisplayName: Training wooden Dummy
+  MaxHealth: 50
+  KillingPoints: 5
+  HealthPerLevel: 60
+  PointsPerLevel: 3
 --- !u!114 &114659052784014680
 MonoBehaviour:
   m_ObjectHideFlags: 1
