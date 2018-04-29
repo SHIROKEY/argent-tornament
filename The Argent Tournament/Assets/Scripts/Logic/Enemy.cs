@@ -4,6 +4,8 @@ using System;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using Assets.Scripts.Abstract;
+using Assets.Scripts.Logic;
+using Assets.Scripts.Management;
 
 namespace Assets.Scripts
 {

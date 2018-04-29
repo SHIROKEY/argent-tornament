@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Assets.Scripts.UI;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Management
 {
     public class ElementManager : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using System.Collections;
 using Assets.Scripts.Enum;
 using Assets.Scripts.Logic;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Management
 {
     public class VictimManager : MonoBehaviour
     {

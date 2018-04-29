@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Abstract;
+using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.UI
 {
     public class StaminaBar : Bar
     {
