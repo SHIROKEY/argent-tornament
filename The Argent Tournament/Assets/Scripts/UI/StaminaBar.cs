@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Abstract;
+using Assets.Scripts.Management;
 using System.Collections;
 using UnityEngine;
 
@@ -12,6 +13,14 @@ namespace Assets.Scripts.UI
         public bool IsRecovering { get; set; }
 
         private Coroutine _currentAction;
+        private ElementManager _elementManager;
+
+        private void Awake()
+        {
+            _elementManager = FindObjectOfType<ElementManager>();
+            _elementManager.StaminaBar = this;
+            Debug.Log(this.GetType() + " loaded");
+        }
 
         private void Start()
         {

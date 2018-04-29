@@ -8,6 +8,11 @@ namespace Assets.Scripts.UI
     {
         private Text _text;
 
+        private void Awake()
+        {
+            Debug.Log(this.GetType() + " loaded");
+        }
+
         private void Start()
         {
             _text = GetComponentInChildren<Text>();

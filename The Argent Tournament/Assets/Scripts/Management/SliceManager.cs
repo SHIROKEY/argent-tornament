@@ -14,11 +14,18 @@ namespace Assets.Scripts.Management
 
         private Dictionary<int, TouchPoint> _startPoints;
 
+        private void Awake()
+        {
+            var retctTransform = gameObject.GetComponent<RectTransform>();
+            _elementManager = FindObjectOfType<ElementManager>();
+            _elementManager.SliceControllerTransform = retctTransform;
+            _elementManager.PointerPositionAmendment = retctTransform.anchoredPosition;
+            Debug.Log(this.GetType() + " loaded");
+        }
+
         private void Start()
         {
-            _elementManager = FindObjectOfType<ElementManager>();
             _startPoints = new Dictionary<int, TouchPoint>(MaxTouchesCount);
-            Debug.Log("Slice Manager");
         }
 
         public void OnPointerDown(PointerEventData eventData)

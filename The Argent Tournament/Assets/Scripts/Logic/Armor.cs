@@ -12,6 +12,11 @@ namespace Assets.Scripts.Logic
 
         public float AbsorbtionPercent = 0;
 
+        private void Awake()
+        {
+            Debug.Log(this.GetType() + " loaded");
+        }
+
         private void Start()
         {
             _elementManager = FindObjectOfType<ElementManager>();

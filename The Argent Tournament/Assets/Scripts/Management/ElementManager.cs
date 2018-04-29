@@ -4,36 +4,30 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Assets.Scripts.UI;
 using Assets.Scripts.Management;
+using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.Management
 {
-    public class ElementManager : MonoBehaviour
+    public class ElementManager : GameManager
     {
-        public Transform EnemyLayer;
-        public StaminaBar StaminaBar;
-        public EnemyHealthBar HealthBar;
-        public GameObject PointerPrefab;
-        public GameObject TrailPrefab;
-        public GameObject FloatingTextPrefab;
+        public override Transform EnemyLayer { get; set; }
+        public override StaminaBar StaminaBar { get; set; }
+        public override EnemyHealth EnemyHealthBar { get; set; }
+        public override RectTransform SliceControllerTransform { get; set; }
+        public override VictimManager VictimManager { get; set; }
 
-        public Vector2 PointerPositionAmendment { get; private set; }
+        public Vector2 PointerPositionAmendment { get; set; }
 
         public float KillingScore { get; set; }
 
-        private RectTransform _sliceControllerTransform;
-        private VictimManager _victimManager;
-
-        private void Start()
+        private void Awake()
         {
-            _sliceControllerTransform = GetComponentInChildren<SliceManager>().GetComponent<RectTransform>();
-            PointerPositionAmendment = _sliceControllerTransform.anchoredPosition;
-            _victimManager = EnemyLayer.GetComponent<VictimManager>();
-            Debug.Log("Element Manager");
+            Debug.Log(this.GetType() + " loaded");
         }
 
         public void SpawnNextVictim()
         {
-            _victimManager.SpawnNextEnemy();
+            VictimManager.SpawnNextEnemy();
         }
 
     }

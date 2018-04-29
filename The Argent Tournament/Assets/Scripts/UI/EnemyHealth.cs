@@ -6,17 +6,23 @@ using Assets.Scripts.Management;
 
 namespace Assets.Scripts.UI
 {
-    public class EnemyHealthBar : Bar
+    public class EnemyHealth : Bar
     {
         private Name _enemyName;
+        private ElementManager _elementManager;
+
+        private void Awake()
+        {
+            _elementManager = FindObjectOfType<ElementManager>();
+            _elementManager.EnemyHealthBar = this;
+            Debug.Log(this.GetType() + " loaded");
+        }
 
         private void Start()
         {
-            Debug.Log("EnemyHealthBar");
             _enemyName = GetComponentInChildren<Name>();
             InitializeIndication();
             Increase(MaxAmount);
-            //FindObjectOfType<ElementManager>().StartTheGame();
         }
 
         public void Refresh(float maxAmount, string newName)

@@ -372,9 +372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229bf492b5826fb4194d48221cd5f4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyLayer: {fileID: 1043071151}
-  StaminaBar: {fileID: 660691571}
-  HealthBar: {fileID: 1639539650}
   PointerPrefab: {fileID: 1747943668060186, guid: cb346ca9aec0df84098e9a806f08b31f,
     type: 2}
   TrailPrefab: {fileID: 1582210570624670, guid: 2e7eeb2fc1cfc8b40b0ae2de84cf4c2c,
@@ -685,9 +682,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb0f05ed061f9b44b5c7efc094c8fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAmount: 0
-  TickTime: 0
-  RecoverStaminaPerTick: 0
+  MaxAmount: 100
+  TickTime: 0.01
+  RecoverStaminaPerTick: 1
 --- !u!1 &686840631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eca5c920ec8d5441aa6377af368143b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAmount: 0
+  MaxAmount: 50
 --- !u!114 &1639539651
 MonoBehaviour:
   m_ObjectHideFlags: 0

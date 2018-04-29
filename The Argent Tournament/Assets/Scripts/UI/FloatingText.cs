@@ -12,6 +12,11 @@ namespace Assets.Scripts.UI
         private float CurrentTime;
         private RectTransform _rectTransform;
 
+        private void Awake()
+        {
+            Debug.Log(this.GetType() + " loaded");
+        }
+
         private void Start()
         {
             _rectTransform = GetComponent<RectTransform>();

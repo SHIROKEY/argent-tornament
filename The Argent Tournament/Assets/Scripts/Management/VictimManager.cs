@@ -22,11 +22,16 @@ namespace Assets.Scripts.Management
 
         private bool _waiting;
 
+        private void Awake()
+        {
+            _elementManager = FindObjectOfType<ElementManager>();
+            _elementManager.EnemyLayer = gameObject.transform;
+            _elementManager.VictimManager = this;
+            Debug.Log(this.GetType() + " loaded");
+        }
 
         private void Start()
         {
-            _elementManager = FindObjectOfType<ElementManager>();
-            Debug.Log("Victim Manager");
             for (int i=0;i<_levelingGaps.Length;i++)
             {
                 _levelingGaps[i] *= (int)EnemyDifficulty;
@@ -36,7 +41,7 @@ namespace Assets.Scripts.Management
         public void CreateFirstEnemy()
         {
             var victim = Instantiate(Victims[0], _elementManager.EnemyLayer).GetComponent<Enemy>();
-            _elementManager.HealthBar.Refresh(victim.MaxHealth, victim.DisplayName + " (lvl-1)");
+            _elementManager.EnemyHealthBar.Refresh(victim.MaxHealth, victim.DisplayName + " (lvl-1)");
         }
 
         public GameObject GetNextEnemy()
@@ -70,7 +75,7 @@ namespace Assets.Scripts.Management
         private void Spawn()
         {
             var victim = GetNextEnemy().GetComponent<Enemy>();
-            _elementManager.HealthBar.Refresh(victim.MaxHealth, victim.DisplayName);
+            _elementManager.EnemyHealthBar.Refresh(victim.MaxHealth, victim.DisplayName);
         }
 
         private IEnumerator WaitForSecondBeforeSpawn()

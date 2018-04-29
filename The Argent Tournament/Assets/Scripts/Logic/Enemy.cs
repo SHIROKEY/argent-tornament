@@ -23,6 +23,11 @@ namespace Assets.Scripts
 
         private bool _dead;
 
+        private void Awake()
+        {
+            Debug.Log(this.GetType() + " loaded");
+        }
+
         private void Start()
         {
             _elementManager = FindObjectOfType<ElementManager>();
@@ -39,7 +44,7 @@ namespace Assets.Scripts
                 floatingtext.GetComponent<Text>().text = amount.ToString();
                 floatingtext.GetComponent<RectTransform>().anchoredPosition = point - _elementManager.PointerPositionAmendment;
                 pointer.DecreaseDamage(amount);
-                _dead = _elementManager.HealthBar.IsOutOfHP(amount);
+                _dead = _elementManager.EnemyHealthBar.IsOutOfHP(amount);
                 if (_dead)
                 {
                     _animator.Play("Death");

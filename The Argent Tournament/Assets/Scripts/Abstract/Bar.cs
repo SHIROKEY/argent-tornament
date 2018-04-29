@@ -10,6 +10,11 @@ namespace Assets.Scripts.Abstract
 
         protected BarFiller _indicator;
 
+        private void Awake()
+        {
+            Debug.Log(this.GetType() + " loaded");
+        }
+
         public float GetCurrentAmount()
         {
             return _currentAmount;

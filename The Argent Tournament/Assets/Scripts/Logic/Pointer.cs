@@ -17,6 +17,11 @@ namespace Assets.Scripts.Logic
             _currentDamage += DamagePerStaminaPoint * staminaPoints;
         }
 
+        private void Awake()
+        {
+            Debug.Log(this.GetType() + " loaded");
+        }
+
         public void DecreaseDamage(float amount)
         {
             if (amount < _currentDamage)
