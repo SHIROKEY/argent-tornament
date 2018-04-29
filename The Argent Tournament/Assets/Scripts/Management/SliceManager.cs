@@ -18,6 +18,7 @@ namespace Assets.Scripts.Management
         {
             _elementManager = FindObjectOfType<ElementManager>();
             _startPoints = new Dictionary<int, TouchPoint>(MaxTouchesCount);
+            Debug.Log("Slice Manager");
         }
 
         public void OnPointerDown(PointerEventData eventData)

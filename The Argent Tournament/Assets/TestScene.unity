@@ -682,12 +682,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 660691567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac6feb4d6a91344a8e16c1fc1c42cf4, type: 3}
+  m_Script: {fileID: 11500000, guid: afb0f05ed061f9b44b5c7efc094c8fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAmount: 100
-  TickTime: 0.01
-  RecoverStaminaPerTick: 1
+  MaxAmount: 0
+  TickTime: 0
+  RecoverStaminaPerTick: 0
 --- !u!1 &686840631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,10 +1104,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639539648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b6057b27da8fda41bd594b88e7b66e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eca5c920ec8d5441aa6377af368143b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAmount: 30
+  MaxAmount: 0
 --- !u!114 &1639539651
 MonoBehaviour:
   m_ObjectHideFlags: 0

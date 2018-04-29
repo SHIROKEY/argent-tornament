@@ -12,10 +12,11 @@ namespace Assets.Scripts.UI
 
         private void Start()
         {
+            Debug.Log("EnemyHealthBar");
             _enemyName = GetComponentInChildren<Name>();
             InitializeIndication();
             Increase(MaxAmount);
-            FindObjectOfType<ElementManager>().StartTheGame();
+            //FindObjectOfType<ElementManager>().StartTheGame();
         }
 
         public void Refresh(float maxAmount, string newName)

@@ -26,6 +26,7 @@ namespace Assets.Scripts.Management
         private void Start()
         {
             _elementManager = FindObjectOfType<ElementManager>();
+            Debug.Log("Victim Manager");
             for (int i=0;i<_levelingGaps.Length;i++)
             {
                 _levelingGaps[i] *= (int)EnemyDifficulty;

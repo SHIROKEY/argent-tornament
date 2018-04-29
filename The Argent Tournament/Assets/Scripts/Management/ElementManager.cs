@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Assets.Scripts.UI;
+using Assets.Scripts.Management;
 
 namespace Assets.Scripts.Management
 {
@@ -27,11 +28,7 @@ namespace Assets.Scripts.Management
             _sliceControllerTransform = GetComponentInChildren<SliceManager>().GetComponent<RectTransform>();
             PointerPositionAmendment = _sliceControllerTransform.anchoredPosition;
             _victimManager = EnemyLayer.GetComponent<VictimManager>();
-        }
-
-        public void StartTheGame()
-        {
-            _victimManager.CreateFirstEnemy();
+            Debug.Log("Element Manager");
         }
 
         public void SpawnNextVictim()
