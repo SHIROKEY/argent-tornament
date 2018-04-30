@@ -209,8 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Training wooden Dummy
   MaxHealth: 50
-  KillingPoints: 5
-  HealthPerLevel: 60
+  KillingPoints: 1
+  HealthPerLevel: 25
   PointsPerLevel: 3
 --- !u!114 &114659052784014680
 MonoBehaviour:

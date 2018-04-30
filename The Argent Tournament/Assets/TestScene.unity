@@ -777,6 +777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273e6e301f645984eae3b1e1ad8ba0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagePerStaminaPoint: 1
+  StaminaConsumePerLengthPoint: 0.02
 --- !u!1 &819336145
 GameObject:
   m_ObjectHideFlags: 0
