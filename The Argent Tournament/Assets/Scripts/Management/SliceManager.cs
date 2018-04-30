@@ -17,11 +17,6 @@ namespace Assets.Scripts.Management
 
         public void Awake()
         {
-            var retctTransform = gameObject.GetComponent<RectTransform>();
-            _elementManager = FindObjectOfType<ElementManager>();
-            _elementManager.SliceControllerTransform = retctTransform;
-            _elementManager.PointerPositionAmendment = retctTransform.anchoredPosition;
-            _elementManager.LoadProgress = 2;
             Debug.Log(this.GetType() + " loaded");
         }
 

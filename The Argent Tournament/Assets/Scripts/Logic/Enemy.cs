@@ -42,7 +42,7 @@ namespace Assets.Scripts
                 var amount = Mathf.Round(pointer.GetDamage());
                 var floatingtext = Instantiate(_elementManager.FloatingTextPrefab, _elementManager.EnemyLayer);
                 floatingtext.GetComponent<Text>().text = amount.ToString();
-                floatingtext.GetComponent<RectTransform>().anchoredPosition = point - _elementManager.PointerPositionAmendment;
+                floatingtext.GetComponent<RectTransform>().anchoredPosition = point;
                 pointer.DecreaseDamage(amount);
                 _dead = _elementManager.EnemyHealthBar.IsOutOfHP(amount);
                 if (_dead)
@@ -55,8 +55,8 @@ namespace Assets.Scripts
         public void OnDeath()
         {
             Destroy(gameObject);
-            _elementManager.KillingScore += KillingPoints;
-            _elementManager.SpawnNextEnemy();
+            //_elementManager.KillingScore += KillingPoints;
+            //_elementManager.SpawnNextEnemy();
         }
     }
 }

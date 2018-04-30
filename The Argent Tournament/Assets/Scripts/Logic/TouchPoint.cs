@@ -57,7 +57,7 @@ namespace Assets.Scripts
 
         private void ChangePointerPosition(Vector2 position)
         {
-            _rectTransform.anchoredPosition = position - _elementManager.PointerPositionAmendment;
+            _rectTransform.anchoredPosition = position;
         }
 
         public void Dispose()

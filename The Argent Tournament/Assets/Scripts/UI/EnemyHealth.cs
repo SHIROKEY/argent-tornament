@@ -15,9 +15,6 @@ namespace Assets.Scripts.UI
         {
             _enemyName = GetComponentInChildren<Name>();
             InitializeIndication();
-            _elementManager = FindObjectOfType<ElementManager>();
-            _elementManager.EnemyHealthBar = this;
-            _elementManager.LoadProgress = 1;
             Debug.Log(this.GetType() + " loaded");
         }
 

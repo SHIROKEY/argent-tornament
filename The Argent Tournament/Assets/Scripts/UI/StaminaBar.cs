@@ -17,9 +17,6 @@ namespace Assets.Scripts.UI
 
         public void Awake()
         {
-            _elementManager = FindObjectOfType<ElementManager>();
-            _elementManager.StaminaBar = this;
-            _elementManager.LoadProgress = 1;
             Debug.Log(this.GetType() + " loaded");
         }
 

@@ -30,7 +30,7 @@ namespace Assets.Scripts.Logic
             var textContainer = floatingtext.GetComponent<Text>();
             textContainer.text = decreased.ToString();
             textContainer.color = new Color(0, 1, 0);
-            floatingtext.GetComponent<RectTransform>().anchoredPosition = (point - _elementManager.PointerPositionAmendment) - new Vector2(300,0);
+            floatingtext.GetComponent<RectTransform>().anchoredPosition = (point) - new Vector2(300,0);
         }
     }
 }

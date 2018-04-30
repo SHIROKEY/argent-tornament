@@ -24,10 +24,6 @@ namespace Assets.Scripts.Management
 
         public void Awake()
         {
-            _elementManager = FindObjectOfType<ElementManager>();
-            _elementManager.EnemyLayer = gameObject.transform;
-            _elementManager.EnemyManager = this;
-            _elementManager.LoadProgress = 2;
             Debug.Log(this.GetType() + " loaded");
         }
 
@@ -52,12 +48,12 @@ namespace Assets.Scripts.Management
         private int GetCurrentLevel()
         {
             var level = _currentEnemyLevel;
-            var levelBound = (int)EnemyDifficulty * Mathf.Exp(_currentEnemyLevel);
-            while (levelBound<_elementManager.KillingScore)
-            {
-                level++;
-                levelBound  = (int)EnemyDifficulty * Mathf.Exp(level);
-            }
+            //var levelBound = (int)EnemyDifficulty * Mathf.Exp(_currentEnemyLevel);
+            //while (levelBound<_elementManager.KillingScore)
+            //{
+            //    level++;
+            //    levelBound  = (int)EnemyDifficulty * Mathf.Exp(level);
+            //}
             return level;
         }
 
