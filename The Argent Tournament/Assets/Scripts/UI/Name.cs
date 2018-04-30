@@ -11,7 +11,6 @@ namespace Assets.Scripts.UI
         private void Awake()
         {
             _text = GetComponentInChildren<Text>();
-            Debug.Log(this.GetType() + " loaded");
         }
 
         public void SetName(string name)

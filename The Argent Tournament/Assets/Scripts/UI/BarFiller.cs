@@ -8,11 +8,6 @@ namespace Assets.Scripts.UI
     {
         private Image _indicator;
 
-        private void Awake()
-        {
-            Debug.Log(this.GetType() + " loaded");
-        }
-
         public void InitializeIndication()
         {
             _indicator = GetComponent<Image>();

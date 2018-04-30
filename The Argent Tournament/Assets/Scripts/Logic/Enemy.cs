@@ -19,19 +19,13 @@ namespace Assets.Scripts
         public float PointsPerLevel = 0;
 
         private Animator _animator;
-        private ElementManager _elementManager;
 
         private bool _dead;
 
-        private void Awake()
-        {
-            Debug.Log(this.GetType() + " loaded");
-        }
-
         private void Start()
         {
-            _elementManager = FindObjectOfType<ElementManager>();
-            _animator = GetComponentInParent<Animator>();
+            LinkToGameLogic(FindObjectOfType<GameLogicManager>());
+            _animator = GetComponent<Animator>();
         }
 
         public override void TakeDamage(Pointer pointer, Vector2 point)
@@ -40,11 +34,9 @@ namespace Assets.Scripts
             {
                 _animator.Play("TakingDamage");
                 var amount = Mathf.Round(pointer.GetDamage());
-                var floatingtext = Instantiate(_elementManager.FloatingTextPrefab, _elementManager.EnemyLayer);
-                floatingtext.GetComponent<Text>().text = amount.ToString();
-                floatingtext.GetComponent<RectTransform>().anchoredPosition = point;
                 pointer.DecreaseDamage(amount);
-                _dead = _elementManager.EnemyHealthBar.IsOutOfHP(amount);
+                GameLogicManager.CreateFloatingText(amount.ToString(), point, new Color(1,1,1));
+                _dead = GameLogicManager.IsOutOfHP(amount);
                 if (_dead)
                 {
                     _animator.Play("Death");
@@ -55,8 +47,8 @@ namespace Assets.Scripts
         public void OnDeath()
         {
             Destroy(gameObject);
-            //_elementManager.KillingScore += KillingPoints;
-            //_elementManager.SpawnNextEnemy();
+            GameLogicManager.KillingScore += KillingPoints;
+            GameLogicManager.OnCurrentEnemyDeath();
         }
     }
 }

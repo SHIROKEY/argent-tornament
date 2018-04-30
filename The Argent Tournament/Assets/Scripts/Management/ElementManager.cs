@@ -18,6 +18,7 @@ namespace Assets.Scripts.Management
         public StaminaBar StaminaBar { get; set; }
         public EnemyHealth EnemyHealthBar { get; set; }
         public EnemyManager EnemyManager { get; set; }
+        public SliceManager SliceManager { get; set; }
 
 
         private void Awake()
@@ -26,19 +27,7 @@ namespace Assets.Scripts.Management
             EnemyLayer = EnemyManager.GetComponent<RectTransform>();
             StaminaBar = GetComponentInChildren<StaminaBar>();
             EnemyHealthBar = GetComponentInChildren<EnemyHealth>();
-            Debug.Log(this.GetType() + " loaded");
+            SliceManager = GetComponentInChildren<SliceManager>();
         }
-
-        //public RectTransform SliceControllerTransform { get; set; }
-        //public Vector2 PointerPositionAmendment { get; set; }
-        //public float KillingScore { get; set; }
-        //public void SpawnNextEnemy()
-        //{
-        //    EnemyManager.SpawnNextEnemy(0);
-        //}
-        //public void StartGame()
-        //{
-        //    SpawnNextEnemy();
-        //}
     }
 }

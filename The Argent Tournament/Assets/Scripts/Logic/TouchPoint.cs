@@ -12,14 +12,15 @@ namespace Assets.Scripts
         private float _currentDistanceFromStart;
 
         private RectTransform _rectTransform;
-        private ElementManager _elementManager;
+        private GameLogicManager _gameLogicManager;
 
         public TouchPoint(Vector2 initialPosition)
         {
-            _elementManager = UnityEngine.Object.FindObjectOfType<ElementManager>();
+
+            _gameLogicManager = UnityEngine.Object.FindObjectOfType<GameLogicManager>();
             _currentDistanceFromStart = 0;
             _startPosition = initialPosition;
-            _rectTransform = UnityEngine.Object.Instantiate(_elementManager.PointerPrefab, _elementManager.EnemyLayer).GetComponent<RectTransform>();
+            _rectTransform = _gameLogicManager.CreatePointer();
             ChangePointerPosition(initialPosition);
         }
 
@@ -28,7 +29,8 @@ namespace Assets.Scripts
             var pointer = _rectTransform.GetComponent<Pointer>();
             var distance = (eventData.position - _startPosition).magnitude;
             var usedStamina = eventData.delta.magnitude * pointer.StaminaConsumePerLengthPoint;
-            usedStamina = usedStamina >= _elementManager.StaminaBar.GetCurrentAmount() ? _elementManager.StaminaBar.GetCurrentAmount() : usedStamina;
+            var currentStamina = _gameLogicManager.GetCurrentStaminaAmount();
+            usedStamina = usedStamina >= currentStamina ? currentStamina : usedStamina;
             if (_currentDistanceFromStart < distance)
             {
                 _currentDistanceFromStart = distance;
@@ -44,7 +46,7 @@ namespace Assets.Scripts
 
         public void CreateTrail()
         {
-            UnityEngine.Object.Instantiate(_elementManager.TrailPrefab, _rectTransform);
+            _gameLogicManager.CreateTrail(_rectTransform);
         }
 
         private void RestartSlice(Vector2 newStartpoint)

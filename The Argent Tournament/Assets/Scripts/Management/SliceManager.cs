@@ -7,18 +7,11 @@ using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.Management
 {
-    public class SliceManager : MonoBehaviour, IRegistrable, IPointerDownHandler, IBeginDragHandler, IDragHandler, IPointerUpHandler
+    public class SliceManager : StorableElement, IPointerDownHandler, IBeginDragHandler, IDragHandler, IPointerUpHandler
     {
         public int MaxTouchesCount;
 
-        private ElementManager _elementManager;
-
         private Dictionary<int, TouchPoint> _startPoints;
-
-        public void Awake()
-        {
-            Debug.Log(this.GetType() + " loaded");
-        }
 
         private void Start()
         {
@@ -30,7 +23,7 @@ namespace Assets.Scripts.Management
             if (_startPoints.Count < MaxTouchesCount && !_startPoints.ContainsKey(eventData.pointerId))
             {
                 _startPoints.Add(eventData.pointerId, new TouchPoint(eventData.position));
-                _elementManager.StaminaBar.StopRecovery();
+                GameLogicManager.StopStaminaRecovery();
             }
         }
 
@@ -47,7 +40,7 @@ namespace Assets.Scripts.Management
             if (_startPoints.ContainsKey(eventData.pointerId))
             {
                 var staminaUsage = _startPoints[eventData.pointerId].ReplacePointer(eventData);
-                _elementManager.StaminaBar.ConsumeStamina(staminaUsage);
+                GameLogicManager.UseStamina(staminaUsage);
             }
         }
 
@@ -57,12 +50,12 @@ namespace Assets.Scripts.Management
             {
                 var touch = _startPoints[eventData.pointerId];
                 var staminaUsage = touch.ReplacePointer(eventData);
-                _elementManager.StaminaBar.ConsumeStamina(staminaUsage);
+                GameLogicManager.UseStamina(staminaUsage);
                 touch.Dispose();
                 _startPoints.Remove(eventData.pointerId);
                 if (_startPoints.Count == 0)
                 {
-                    _elementManager.StaminaBar.StartRecovery();
+                    GameLogicManager.StartStaminaRecovery();
                 }
             }
         }

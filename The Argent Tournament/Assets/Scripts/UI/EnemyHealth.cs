@@ -6,16 +6,14 @@ using Assets.Scripts.Management;
 
 namespace Assets.Scripts.UI
 {
-    public class EnemyHealth : Bar, IRegistrable
+    public class EnemyHealth : Bar
     {
         private Name _enemyName;
-        private ElementManager _elementManager;
 
         public void Awake()
         {
             _enemyName = GetComponentInChildren<Name>();
             InitializeIndication();
-            Debug.Log(this.GetType() + " loaded");
         }
 
         public void Refresh(float maxAmount, string newName)

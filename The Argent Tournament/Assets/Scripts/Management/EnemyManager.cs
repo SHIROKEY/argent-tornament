@@ -8,24 +8,17 @@ using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.Management
 {
-    public class EnemyManager : MonoBehaviour, IRegistrable
+    public class EnemyManager : StorableElement
     {
         public Difficulty EnemyDifficulty = Difficulty.Dark_Souls;
 
         public GameObject[] Enemies;
-
-        private ElementManager _elementManager;
 
         private int _currentEnemyLevel = 0;
         private int _remainingDelay = 0;
 
         private bool _waiting;
         private int _enemySpawnDelay = 0;
-
-        public void Awake()
-        {
-            Debug.Log(this.GetType() + " loaded");
-        }
 
         public GameObject GetNextEnemy()
         {
@@ -40,7 +33,7 @@ namespace Assets.Scripts.Management
         private GameObject CreateEnemy(int enemyNumber)
         {
             _currentEnemyLevel = GetCurrentLevel();
-            var enemy = Instantiate(Enemies[enemyNumber], _elementManager.EnemyLayer);
+            var enemy = Instantiate(Enemies[enemyNumber], GameLogicManager.GetEnemyLayer());
             LevelUp(enemy.GetComponent<Enemy>());
             return enemy;
         } 
@@ -48,12 +41,12 @@ namespace Assets.Scripts.Management
         private int GetCurrentLevel()
         {
             var level = _currentEnemyLevel;
-            //var levelBound = (int)EnemyDifficulty * Mathf.Exp(_currentEnemyLevel);
-            //while (levelBound<_elementManager.KillingScore)
-            //{
-            //    level++;
-            //    levelBound  = (int)EnemyDifficulty * Mathf.Exp(level);
-            //}
+            var levelBound = (int)EnemyDifficulty * Mathf.Exp(_currentEnemyLevel);
+            while (levelBound< GameLogicManager.KillingScore)
+            {
+                level++;
+                levelBound  = (int)EnemyDifficulty * Mathf.Exp(level);
+            }
             return level;
         }
 
@@ -82,7 +75,7 @@ namespace Assets.Scripts.Management
                 enemy = GetNextEnemy().GetComponent<Enemy>();
                 
             }
-            _elementManager.EnemyHealthBar.Refresh(enemy.MaxHealth, enemy.DisplayName);
+            GameLogicManager.RefreshHealthBar(enemy.MaxHealth, enemy.DisplayName);
         }
 
         private IEnumerator WaitForSecondBeforeSpawn()

@@ -3,17 +3,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.Abstract
 {
-    public abstract class Bar : MonoBehaviour
+    public abstract class Bar : StorableElement
     {
         public float MaxAmount;
         protected float _currentAmount;
 
         protected BarFiller _indicator;
-
-        private void Awake()
-        {
-            Debug.Log(this.GetType() + " loaded");
-        }
 
         public float GetCurrentAmount()
         {

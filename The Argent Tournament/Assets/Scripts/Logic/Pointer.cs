@@ -1,25 +1,28 @@
 ﻿using Assets.Scripts.Abstract;
+using Assets.Scripts.Management;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Logic
 {
-    public class Pointer: MonoBehaviour, IDisposable
+    public class Pointer: StorableElement, IDisposable
     {
-        public float DamagePerStaminaPoint;
-        public float StaminaConsumePerLengthPoint;
+        public float StaminaConsumePerLengthPoint { get; set; }
+        public float DamagePerStaminaPoint { get; set; }
 
         private float _currentDamage = 0;
+
+        private void Awake()
+        {
+            LinkToGameLogic(FindObjectOfType<GameLogicManager>());
+            DamagePerStaminaPoint = GameLogicManager.DamagePerStaminaPoint;
+            StaminaConsumePerLengthPoint = GameLogicManager.StaminaConsumePerLengthPoint;
+        }
 
         public void IncreaseDamage(float staminaPoints)
         {
             _currentDamage += DamagePerStaminaPoint * staminaPoints;
-        }
-
-        private void Awake()
-        {
-            Debug.Log(this.GetType() + " loaded");
         }
 
         public void DecreaseDamage(float amount)

@@ -694,6 +694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686840635}
   - component: {fileID: 686840632}
+  - component: {fileID: 686840636}
   - component: {fileID: 686840634}
   - component: {fileID: 686840633}
   m_Layer: 0
@@ -765,6 +766,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &686840636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 686840631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273e6e301f645984eae3b1e1ad8ba0e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &819336145
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,10 +896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399dbfe0a2a5a764cab1d2292ae8e1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelingGaps:
-  - 10
-  - 30
-  - 50
   EnemyDifficulty: 1
   Enemies:
   - {fileID: 1570329194243680, guid: 3cf18e023bf1df849afb103154e7477f, type: 2}
