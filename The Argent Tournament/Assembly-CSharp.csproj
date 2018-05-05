@@ -70,11 +70,11 @@
      <Compile Include="Assets\Scripts\UI\Name.cs" />
      <Compile Include="Assets\Scripts\UI\StaminaBar.cs" />
      <Compile Include="Assets\Scripts\UI\Timer.cs" />
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>D:/SHIROREPO/argent-tornament/The Argent Tournament/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/SHIROREPO/argent-tornament/The Argent Tournament/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>D:/SHIROREPO/argent-tornament/The Argent Tournament/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Software/Unity/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
