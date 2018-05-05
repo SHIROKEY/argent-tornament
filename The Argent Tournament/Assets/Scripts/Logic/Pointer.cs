@@ -55,6 +55,10 @@ namespace Assets.Scripts.Logic
             {
                 enemy.TakeDamage(this, GetComponent<RectTransform>().anchoredPosition);
             }
+            if (enemy.GetComponent<Enemy>() != null)
+            {
+                GetComponent<AudioSource>().Play();
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Assets.Scripts.UI
     public class Timer: StorableElement
     {
         public int MaxSeconds = 0;
+        public bool IsIntro = true;
 
         public int CurrentSeconds { get; set; }
 
@@ -65,14 +66,17 @@ namespace Assets.Scripts.UI
             yield return new WaitForSeconds(1);
             CurrentSeconds -= 1;
             RenderTime();
-            if (CurrentSeconds>0)
+            if (CurrentSeconds > 0)
             {
                 _counting = StartCoroutine(Tick());
             }
             else
             {
                 _inProgress = false;
-                GameLogicManager.GameEnd();
+                if (!IsIntro)
+                {
+                    GameLogicManager.GameEnd();
+                }
             }
         }
     }

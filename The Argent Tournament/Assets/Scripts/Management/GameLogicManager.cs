@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,15 +22,36 @@ namespace Assets.Scripts.Management
 
         private void GameStart()
         {
-            _elementManager.EnemyManager.SpawnNextEnemy(0);
+            StartCoroutine(StartGameCoroutine());
+        }
+
+        private IEnumerator StartGameCoroutine()
+        {
+            _elementManager.EffectManager.MainTimer.MaxSeconds = 12;
             _elementManager.EffectManager.MainTimer.StartTimer();
+            yield return new WaitForSeconds(12);
+            SetActive("IntroSource",false);
+            SetActive("IntroLabel", false);
+            SetActive("BGMSource", true);
+            _elementManager.EffectManager.MainTimer.StopTimer();
+            _elementManager.EffectManager.MainTimer.MaxSeconds = 25;
+            _elementManager.EnemyManager.SpawnNextEnemy(0);
+            _elementManager.EffectManager.MainTimer.IsIntro = false;
+            _elementManager.EffectManager.MainTimer.StartTimer();
+
+        }
+
+        private void SetActive(string name, bool state)
+        {
+            var element = _elementManager.transform.Find(name);
+            element.gameObject.SetActive(state);
         }
 
         public void GameEnd()
         {
-            Debug.Log("Game over");
             _isGameOver = true;
             _elementManager.SliceManager.gameObject.SetActive(false);
+            SetActive("BGMSource", false);
             var menu = _elementManager.transform.Find("GameOverMenu");
             var levelPoints = (_elementManager.EnemyManager.CurrentEnemyLevel - CurrentPlayerLevel);
             levelPoints = levelPoints > 0 ? levelPoints : 0;

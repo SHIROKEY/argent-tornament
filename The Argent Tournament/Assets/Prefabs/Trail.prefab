@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224685282727619302}
   - component: {fileID: 96334255787385372}
+  - component: {fileID: 222196728654352164}
   m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
@@ -41,6 +42,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 1b7783c836d100746a385402c30f78d9, type: 2}
   m_StaticBatchInfo:
@@ -59,8 +61,8 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 899525615
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Time: 0.25
   m_Parameters:
@@ -69,24 +71,33 @@ TrailRenderer:
     widthCurve:
       serializedVersion: 2
       m_Curve:
-      - serializedVersion: 2
+      - serializedVersion: 3
         time: 0
         value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - serializedVersion: 2
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 0.49758455
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - serializedVersion: 2
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
         value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
@@ -126,6 +137,12 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.01
   m_Autodestruct: 0
+--- !u!222 &222196728654352164
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582210570624670}
 --- !u!224 &224685282727619302
 RectTransform:
   m_ObjectHideFlags: 1

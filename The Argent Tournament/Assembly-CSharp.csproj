@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\Management\ElementManager.cs" />
      <Compile Include="Assets\Scripts\Management\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\Management\GameLogicManager.cs" />
+     <Compile Include="Assets\Scripts\Management\MainMenuManager.cs" />
      <Compile Include="Assets\Scripts\Management\SliceManager.cs" />
      <Compile Include="Assets\Scripts\UI\BarFiller.cs" />
      <Compile Include="Assets\Scripts\UI\EnemyHealth.cs" />
