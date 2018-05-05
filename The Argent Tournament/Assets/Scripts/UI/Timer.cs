@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
 {
-    public class Timer: MonoBehaviour
+    public class Timer: StorableElement
     {
         public int MaxSeconds = 0;
 
@@ -28,18 +28,26 @@ namespace Assets.Scripts.UI
             _text = GetComponent<Text>();
         }
 
-        public void Stop()
+        public void StopTimer()
         {
             _inProgress = false;
             CurrentSeconds = 0;
             StopCoroutine(_counting);
         }
 
-        public void Start()
+        public void StartTimer()
         {
             _inProgress = true;
             CurrentSeconds = MaxSeconds;
+            RenderTime();
             _counting = StartCoroutine(Tick());
+        }
+
+        private void RenderTime()
+        {
+            _min = (CurrentSeconds / 60).ToString();
+            _sec = (CurrentSeconds % 60).ToString();
+            _text.text = _min + ":" + _sec;
         }
 
         public void IncreaseTime(int amount)
@@ -49,15 +57,14 @@ namespace Assets.Scripts.UI
             {
                 CurrentSeconds = MaxSeconds;
             }
+            RenderTime();
         }
 
         private IEnumerator Tick()
         {
             yield return new WaitForSeconds(1);
             CurrentSeconds -= 1;
-            _min = (CurrentSeconds / 60).ToString();
-            _sec = (CurrentSeconds % 60).ToString();
-            _text.text = _min + ":" + _sec;
+            RenderTime();
             if (CurrentSeconds>0)
             {
                 _counting = StartCoroutine(Tick());
@@ -65,6 +72,7 @@ namespace Assets.Scripts.UI
             else
             {
                 _inProgress = false;
+                GameLogicManager.GameEnd();
             }
         }
     }

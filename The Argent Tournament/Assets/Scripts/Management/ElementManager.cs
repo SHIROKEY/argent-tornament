@@ -24,11 +24,13 @@ namespace Assets.Scripts.Management
 
         private void Awake()
         {
+            EffectManager = FindObjectOfType<EffectManager>();
             EnemyManager = GetComponentInChildren<EnemyManager>();
             EnemyLayer = EnemyManager.GetComponent<RectTransform>();
             StaminaBar = GetComponentInChildren<StaminaBar>();
             EnemyHealthBar = GetComponentInChildren<EnemyHealth>();
             SliceManager = GetComponentInChildren<SliceManager>();
+            
         }
     }
 }

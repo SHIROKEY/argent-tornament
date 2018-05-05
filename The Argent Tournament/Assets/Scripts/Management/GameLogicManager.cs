@@ -11,10 +11,34 @@ namespace Assets.Scripts.Management
     {
         public float KillingScore { get; set; }
 
+        public int CurrentPlayerLevel = 0;
+
         public float DamagePerStaminaPoint = 0;
         public float StaminaConsumePerLengthPoint = 0;
 
         private ElementManager _elementManager;
+        private bool _isGameOver = false;
+
+        private void GameStart()
+        {
+            _elementManager.EnemyManager.SpawnNextEnemy(0);
+            _elementManager.EffectManager.MainTimer.StartTimer();
+        }
+
+        public void GameEnd()
+        {
+            Debug.Log("Game over");
+            _isGameOver = true;
+            _elementManager.SliceManager.gameObject.SetActive(false);
+            var menu = _elementManager.transform.Find("GameOverMenu");
+            var levelPoints = (_elementManager.EnemyManager.CurrentEnemyLevel - CurrentPlayerLevel);
+            levelPoints = levelPoints > 0 ? levelPoints : 0;
+            var killerName = _elementManager.EnemyManager.CurrentEnemyName;
+            menu.gameObject.SetActive(true);
+            menu.transform.Find("KillerLabel").GetComponent<Text>().text = killerName;
+            menu.transform.Find("LevelPointsAmount").GetComponent<Text>().text = levelPoints.ToString();
+            menu.transform.Find("ScoreAmount").GetComponent<Text>().text = ((int)KillingScore).ToString();
+        }
 
         private void Awake()
         {
@@ -23,12 +47,13 @@ namespace Assets.Scripts.Management
             _elementManager.StaminaBar.LinkToGameLogic(this);
             _elementManager.EnemyHealthBar.LinkToGameLogic(this);
             _elementManager.SliceManager.LinkToGameLogic(this);
-            //_elementManager.EffectManager.LinkToGameLogic(this);
+            _elementManager.EffectManager.LinkToGameLogic(this);
+            _elementManager.EffectManager.MainTimer.LinkToGameLogic(this);
         }
 
         private void Start()
         {
-            _elementManager.EnemyManager.SpawnNextEnemy(0);
+            GameStart();
         }
 
         public void RefreshHealthBar(float newAmount, string newName)
@@ -72,7 +97,11 @@ namespace Assets.Scripts.Management
 
         public void OnCurrentEnemyDeath()
         {
-            _elementManager.EnemyManager.SpawnNextEnemy(0);
+            if (!_isGameOver)
+            {
+                _elementManager.EnemyManager.SpawnNextEnemy(0);
+                _elementManager.EffectManager.MainTimer.IncreaseTime(_elementManager.EnemyManager.BonusSeconds);
+            }
         }
 
         public RectTransform CreatePointer()
