@@ -23,14 +23,14 @@ namespace Assets.Scripts.Management
 
         private ElementManager _elementManager;
         private bool _isGameOver = false;
-        private GameRecord record;
+        public GameRecord record;
 
         private void GameStart()
         {
             StartCoroutine(StartGameCoroutine());
         }
 
-        private void RandomLevelUp()
+        public void RandomLevelUp()
         {
             var random = Random.Range(0, 5);
             switch (random)
@@ -151,7 +151,6 @@ namespace Assets.Scripts.Management
         {
             if (!_isGameOver)
             {
-                RandomLevelUp();
                 _elementManager.EnemyManager.SpawnNextEnemy(0);
                 _elementManager.EffectManager.MainTimer.IncreaseTime(_elementManager.EnemyManager.BonusSeconds);
             }

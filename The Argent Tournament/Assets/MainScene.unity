@@ -838,7 +838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &483107464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb0f05ed061f9b44b5c7efc094c8fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAmount: 100
+  MaxAmount: 40
   TickTime: 0.01
   RecoverStaminaPerTick: 1
 --- !u!1 &663878108
@@ -1574,6 +1574,8 @@ MonoBehaviour:
   CurrentPlayerLevel: 0
   DamagePerStaminaPoint: 1
   StaminaConsumePerLengthPoint: 0.02
+  DamageIncrease: 0.5
+  StaminaIncrease: 25
 --- !u!114 &686840637
 MonoBehaviour:
   m_ObjectHideFlags: 0

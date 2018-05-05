@@ -46,7 +46,12 @@ namespace Assets.Scripts.Management
 
         private GameObject CreateEnemy(int enemyNumber)
         {
+            var tmp = CurrentEnemyLevel;
             CurrentEnemyLevel = GetCurrentLevel();
+            if (CurrentEnemyLevel != tmp)
+            {
+                GameLogicManager.RandomLevelUp();
+            }
             var enemy = Instantiate(Enemies[enemyNumber], GameLogicManager.GetEnemyLayer());
             CurrentEnemyName = enemy.GetComponent<Enemy>().DisplayName;
             LevelUp(enemy.GetComponent<Enemy>());
