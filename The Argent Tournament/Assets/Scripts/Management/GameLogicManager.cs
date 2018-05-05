@@ -153,6 +153,7 @@ namespace Assets.Scripts.Management
 
         public void OnCurrentEnemyDeath()
         {
+            _elementManager.transform.Find("DeathSource").GetComponent<AudioSource>().Play();
             if (!_isGameOver)
             {
                 _elementManager.EnemyManager.SpawnNextEnemy(0);

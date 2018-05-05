@@ -11,7 +11,7 @@ namespace Assets.Scripts.Management
 {
     class RecordManager: MonoBehaviour
     {
-        public GameObject RecordPrefab;
+        public GameObject RecordPrefab = null;
 
         private GameObject _recordImage;
         private RectTransform _recordBoard;
