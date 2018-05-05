@@ -19,6 +19,7 @@ namespace Assets.Scripts.Management
         public EnemyHealth EnemyHealthBar { get; set; }
         public EnemyManager EnemyManager { get; set; }
         public SliceManager SliceManager { get; set; }
+        public EffectManager EffectManager { get; set; }
 
 
         private void Awake()

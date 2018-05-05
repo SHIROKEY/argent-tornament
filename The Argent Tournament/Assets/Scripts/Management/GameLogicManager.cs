@@ -10,6 +10,7 @@ namespace Assets.Scripts.Management
     public class GameLogicManager: MonoBehaviour
     {
         public float KillingScore { get; set; }
+
         public float DamagePerStaminaPoint = 0;
         public float StaminaConsumePerLengthPoint = 0;
 
@@ -22,6 +23,7 @@ namespace Assets.Scripts.Management
             _elementManager.StaminaBar.LinkToGameLogic(this);
             _elementManager.EnemyHealthBar.LinkToGameLogic(this);
             _elementManager.SliceManager.LinkToGameLogic(this);
+            //_elementManager.EffectManager.LinkToGameLogic(this);
         }
 
         private void Start()
