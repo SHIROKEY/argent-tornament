@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LevelUp
+  m_Text: Records
 --- !u!222 &188851137
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 1356443467}
   - component: {fileID: 1356443466}
   m_Layer: 5
-  m_Name: LevelUpButton
+  m_Name: RecordButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1327,6 +1327,7 @@ GameObject:
   - component: {fileID: 1596437189}
   - component: {fileID: 1596437191}
   - component: {fileID: 1596437190}
+  - component: {fileID: 1596437192}
   m_Layer: 5
   m_Name: GameLabel
   m_TagString: Untagged
@@ -1364,7 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1391,6 +1392,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1596437188}
+--- !u!114 &1596437192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1596437188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 20, y: 20}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1734829272
 GameObject:
   m_ObjectHideFlags: 0
