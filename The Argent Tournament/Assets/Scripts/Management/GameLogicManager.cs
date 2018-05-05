@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Logic;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -66,6 +67,12 @@ namespace Assets.Scripts.Management
 
         public void GoToMenu()
         {
+            var tmp = 0;
+            while (PlayerPrefs.HasKey(tmp.ToString()))
+            {
+                tmp++;
+            }
+            PlayerPrefs.SetString(tmp.ToString(), SerializeManager.Serialize<GameRecord>(record));
             SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
 

@@ -65,11 +65,14 @@
      <Compile Include="Assets\Scripts\Management\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\Management\GameLogicManager.cs" />
      <Compile Include="Assets\Scripts\Management\MainMenuManager.cs" />
+     <Compile Include="Assets\Scripts\Management\RecordManager.cs" />
+     <Compile Include="Assets\Scripts\Management\SerializeManager.cs" />
      <Compile Include="Assets\Scripts\Management\SliceManager.cs" />
      <Compile Include="Assets\Scripts\UI\BarFiller.cs" />
      <Compile Include="Assets\Scripts\UI\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\UI\FloatingText.cs" />
      <Compile Include="Assets\Scripts\UI\Name.cs" />
+     <Compile Include="Assets\Scripts\UI\RecordsContainer.cs" />
      <Compile Include="Assets\Scripts\UI\StaminaBar.cs" />
      <Compile Include="Assets\Scripts\UI\Timer.cs" />
  <Reference Include="UnityEditor.StandardEvents">
