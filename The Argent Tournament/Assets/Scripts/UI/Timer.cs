@@ -42,6 +42,15 @@ namespace Assets.Scripts.UI
             _counting = StartCoroutine(Tick());
         }
 
+        public void IncreaseTime(int amount)
+        {
+            CurrentSeconds += amount;
+            if (CurrentSeconds>MaxSeconds)
+            {
+                CurrentSeconds = MaxSeconds;
+            }
+        }
+
         private IEnumerator Tick()
         {
             yield return new WaitForSeconds(1);
