@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Assets.Scripts.Logic;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +18,32 @@ namespace Assets.Scripts.Management
         public float DamagePerStaminaPoint = 0;
         public float StaminaConsumePerLengthPoint = 0;
 
+        public float DamageIncrease = 0;
+        public float StaminaIncrease = 0;
+
         private ElementManager _elementManager;
         private bool _isGameOver = false;
+        private GameRecord record;
 
         private void GameStart()
         {
             StartCoroutine(StartGameCoroutine());
+        }
+
+        private void RandomLevelUp()
+        {
+            var random = Random.Range(0, 5);
+            switch (random)
+            {
+                case 1:
+                    _elementManager.StaminaBar.MaxAmount += StaminaIncrease;
+                    break;
+                case 2:
+                    DamagePerStaminaPoint += DamageIncrease;
+                    break;
+                default:
+                    break;
+            }
         }
 
         private IEnumerator StartGameCoroutine()
@@ -58,13 +78,18 @@ namespace Assets.Scripts.Management
             _elementManager.SliceManager.gameObject.SetActive(false);
             SetActive("BGMSource", false);
             var menu = _elementManager.transform.Find("GameOverMenu");
-            var levelPoints = (_elementManager.EnemyManager.CurrentEnemyLevel - CurrentPlayerLevel);
-            levelPoints = levelPoints > 0 ? levelPoints : 0;
             var killerName = _elementManager.EnemyManager.CurrentEnemyName;
             menu.gameObject.SetActive(true);
             menu.transform.Find("KillerLabel").GetComponent<Text>().text = killerName;
-            menu.transform.Find("LevelPointsAmount").GetComponent<Text>().text = levelPoints.ToString();
             menu.transform.Find("ScoreAmount").GetComponent<Text>().text = ((int)KillingScore).ToString();
+            record = new GameRecord()
+            {
+                EnemyLevel = _elementManager.EnemyManager.CurrentEnemyLevel,
+                KillerName = killerName,
+                StaminaAmount = _elementManager.StaminaBar.MaxAmount,
+                DamagePerStaminaPoint = DamagePerStaminaPoint,
+                Score = KillingScore
+            };
         }
 
         private void Awake()
@@ -126,6 +151,7 @@ namespace Assets.Scripts.Management
         {
             if (!_isGameOver)
             {
+                RandomLevelUp();
                 _elementManager.EnemyManager.SpawnNextEnemy(0);
                 _elementManager.EffectManager.MainTimer.IncreaseTime(_elementManager.EnemyManager.BonusSeconds);
             }
