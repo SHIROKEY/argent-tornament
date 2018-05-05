@@ -208,11 +208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d2404490a97be40ba4afcabd7ef292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayName: Training wooden Dummy
+  DisplayName: Training dummy
   MaxHealth: 50
-  KillingPoints: 1
-  HealthPerLevel: 25
-  PointsPerLevel: 3
+  KillingPoints: 2
+  HealthPerLevel: 50
+  PointsPerLevel: 1
 --- !u!114 &114659052784014680
 MonoBehaviour:
   m_ObjectHideFlags: 1

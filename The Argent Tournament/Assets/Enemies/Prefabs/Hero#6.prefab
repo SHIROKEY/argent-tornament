@@ -184,7 +184,7 @@ MonoBehaviour:
   DisplayName: Black Knight
   MaxHealth: 300
   KillingPoints: 50
-  HealthPerLevel: 10
+  HealthPerLevel: 100
   PointsPerLevel: 10
 --- !u!114 &114436043538546692
 MonoBehaviour:
