@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
 using System.Collections;
 using Assets.Scripts.Enum;
-using Assets.Scripts.Logic;
 using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.Management

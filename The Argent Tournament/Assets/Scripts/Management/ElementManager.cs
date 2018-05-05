@@ -1,10 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
-using System.Collections.Generic;
 using Assets.Scripts.UI;
-using Assets.Scripts.Management;
-using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.Management
 {

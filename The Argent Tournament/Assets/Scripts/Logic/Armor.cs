@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 using Assets.Scripts.Abstract;
 using Assets.Scripts.Management;
 

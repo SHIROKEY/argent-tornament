@@ -2,7 +2,6 @@
 using Assets.Scripts.Management;
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Logic
 {

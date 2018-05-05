@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using Assets.Scripts;
-using Assets.Scripts.Abstract;
-using Assets.Scripts.Management;
+﻿using Assets.Scripts.Abstract;
 
 namespace Assets.Scripts.UI
 {
