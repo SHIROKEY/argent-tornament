@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Management
@@ -38,13 +39,17 @@ namespace Assets.Scripts.Management
             _elementManager.EnemyManager.SpawnNextEnemy(0);
             _elementManager.EffectManager.MainTimer.IsIntro = false;
             _elementManager.EffectManager.MainTimer.StartTimer();
-
         }
 
         private void SetActive(string name, bool state)
         {
             var element = _elementManager.transform.Find(name);
             element.gameObject.SetActive(state);
+        }
+
+        public void GoToMenu()
+        {
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
 
         public void GameEnd()

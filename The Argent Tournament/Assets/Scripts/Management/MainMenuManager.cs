@@ -13,5 +13,10 @@ namespace Assets.Scripts.Management
         {
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
+
+        public void EndGame()
+        {
+            Application.Quit();
+        }
     }
 }
