@@ -141,9 +141,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Battle-seasoned warrior
   MaxHealth: 70
-  KillingPoints: 7
+  KillingPoints: 0.7
   HealthPerLevel: 70
-  PointsPerLevel: 7
+  PointsPerLevel: 0.7
 --- !u!114 &114593147873801834
 MonoBehaviour:
   m_ObjectHideFlags: 1

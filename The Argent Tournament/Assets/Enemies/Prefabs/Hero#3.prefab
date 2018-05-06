@@ -129,9 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Experienced assasssin
   MaxHealth: 10
-  KillingPoints: 0
+  KillingPoints: 0.1
   HealthPerLevel: 110
-  PointsPerLevel: 11
+  PointsPerLevel: 1.1
 --- !u!114 &114831220330523624
 MonoBehaviour:
   m_ObjectHideFlags: 1

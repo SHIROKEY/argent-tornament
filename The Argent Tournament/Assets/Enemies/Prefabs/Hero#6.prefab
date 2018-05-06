@@ -183,9 +183,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Black Knight
   MaxHealth: 300
-  KillingPoints: 50
-  HealthPerLevel: 100
-  PointsPerLevel: 10
+  KillingPoints: 3
+  HealthPerLevel: 200
+  PointsPerLevel: 2
 --- !u!114 &114436043538546692
 MonoBehaviour:
   m_ObjectHideFlags: 1

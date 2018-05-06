@@ -62,7 +62,7 @@ namespace Assets.Scripts.Management
         private int GetCurrentLevel()
         {
             var level = CurrentEnemyLevel;
-            var levelBound = (int)EnemyDifficulty * Mathf.Exp(CurrentEnemyLevel);
+            var levelBound = (int)EnemyDifficulty * Mathf.Pow(1.1f, CurrentEnemyLevel);
             while (levelBound< GameLogicManager.KillingScore)
             {
                 level++;

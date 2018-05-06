@@ -129,9 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Novice swordsman
   MaxHealth: 20
-  KillingPoints: 1
+  KillingPoints: 0.2
   HealthPerLevel: 90
-  PointsPerLevel: 10
+  PointsPerLevel: 0.9
 --- !u!114 &114532191282816704
 MonoBehaviour:
   m_ObjectHideFlags: 1

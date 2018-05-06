@@ -156,9 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Rogue
   MaxHealth: 110
-  KillingPoints: 12
+  KillingPoints: 1.1
   HealthPerLevel: 20
-  PointsPerLevel: 2
+  PointsPerLevel: 0.2
 --- !u!114 &114719595602965690
 MonoBehaviour:
   m_ObjectHideFlags: 1

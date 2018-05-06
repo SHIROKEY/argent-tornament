@@ -210,9 +210,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Training dummy
   MaxHealth: 50
-  KillingPoints: 2
+  KillingPoints: 0.5
   HealthPerLevel: 50
-  PointsPerLevel: 1
+  PointsPerLevel: 0.5
 --- !u!114 &114659052784014680
 MonoBehaviour:
   m_ObjectHideFlags: 1
