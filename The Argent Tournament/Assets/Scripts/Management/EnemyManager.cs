@@ -93,7 +93,7 @@ namespace Assets.Scripts.Management
             }
             else
             {
-                enemy = GetNextEnemy().GetComponent<Enemy>();
+                enemy = GetNextEnemy(1,Enemies.Length).GetComponent<Enemy>();
                 
             }
             GameLogicManager.RefreshHealthBar(enemy.MaxHealth, enemy.DisplayName);

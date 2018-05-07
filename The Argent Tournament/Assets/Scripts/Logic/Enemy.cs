@@ -28,10 +28,18 @@ namespace Assets.Scripts
         {
             if (!_dead)
             {
-                _animator.Play("TakingDamage");
-                var amount = Mathf.Round(pointer.GetDamage());
-                pointer.DecreaseDamage(amount);
-                GameLogicManager.CreateFloatingText(amount.ToString(), point, new Color(1,1,1));
+                var amount = (int)Mathf.Round(pointer.GetDamage());
+                if (amount > 0)
+                {
+                    _animator.Play("TakingDamage");
+                    pointer.DecreaseDamage(amount);
+                    GameLogicManager.CreateFloatingText(amount.ToString(), point, new Color(1, 1, 1));
+                }
+                else
+                {
+                    GameLogicManager.CreateFloatingText("weak", point, new Color(1, 1, 1));
+                }
+
                 _dead = GameLogicManager.IsOutOfHP(amount);
                 if (_dead)
                 {
