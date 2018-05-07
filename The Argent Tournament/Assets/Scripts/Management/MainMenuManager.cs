@@ -7,6 +7,8 @@ namespace Assets.Scripts.Management
     {
         public void StartGame()
         {
+            var element = transform.Find("LoadingImage");
+            element.gameObject.SetActive(true);
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
 

@@ -53,7 +53,7 @@ namespace Assets.Scripts.Management
             SetActive("IntroLabel", false);
             SetActive("BGMSource", true);
             _elementManager.EffectManager.MainTimer.StopTimer();
-            _elementManager.EffectManager.MainTimer.MaxSeconds = 25;
+            _elementManager.EffectManager.MainTimer.MaxSeconds = 50;
             _elementManager.EnemyManager.SpawnNextEnemy(0);
             _elementManager.EffectManager.MainTimer.IsIntro = false;
             _elementManager.EffectManager.MainTimer.StartTimer();
@@ -67,6 +67,7 @@ namespace Assets.Scripts.Management
 
         public void GoToMenu()
         {
+            SetActive("LoadingImage", true);
             var tmp = 0;
             while (PlayerPrefs.HasKey(tmp.ToString()))
             {
