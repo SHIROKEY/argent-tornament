@@ -1621,8 +1621,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 885, y: -72.44}
-  m_SizeDelta: {x: 150, y: 935.12}
+  m_AnchoredPosition: {x: 905.2798, y: -72.44}
+  m_SizeDelta: {x: 109.44, y: 935.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699927069
 MonoBehaviour:
@@ -1991,6 +1991,13 @@ MonoBehaviour:
   - {fileID: 1298857138282840, guid: 38c6054ddbdffeb4eadccdabcd8e8e55, type: 2}
   - {fileID: 1298857138282840, guid: 970b7d1bbc85ab6429d9eab63e45f4d4, type: 2}
   - {fileID: 1298857138282840, guid: 45ecba6174192854aac4d6cb065be23b, type: 2}
+  - {fileID: 1298857138282840, guid: d01c2b56159ef644faac19d05c74d75d, type: 2}
+  - {fileID: 1298857138282840, guid: 8e5e851f9a1b3a844af4e57120c02961, type: 2}
+  - {fileID: 1298857138282840, guid: f97750a56453cb34db986fba198c76d8, type: 2}
+  - {fileID: 1298857138282840, guid: 89f96de48c87afb4cb38178fb705b286, type: 2}
+  - {fileID: 1298857138282840, guid: 9bb28f824230e2f45952c92badde14e6, type: 2}
+  - {fileID: 1298857138282840, guid: 3779c7980f07f09439f0ad52dae69810, type: 2}
+  - {fileID: 1298857138282840, guid: abc2236f4f9a18d47b621d91e2c068ec, type: 2}
 --- !u!1 &1045232489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,8 +2030,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.049988, y: 0}
-  m_SizeDelta: {x: 1919.9, y: 611.3}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1535.8, y: 733.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045232491
 MonoBehaviour:
@@ -2064,7 +2071,9 @@ MonoBehaviour:
 
     - Damage is limited by stamina
 
-    - You lose when time is over'
+    - You lose when time is over
+
+    - Slices can be blocked'
 --- !u!222 &1045232492
 CanvasRenderer:
   m_ObjectHideFlags: 0

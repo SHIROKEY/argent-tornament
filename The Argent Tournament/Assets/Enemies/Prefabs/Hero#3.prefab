@@ -60,7 +60,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 145.7327, y: -117.75441}
+  m_Offset: {x: 304.40073, y: 265.1864}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -71,7 +71,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 157.96979, y: 246.43118}
+  m_Size: {x: 475.30585, y: 96.91406}
   m_EdgeRadius: 0
 --- !u!61 &61695697200765086
 BoxCollider2D:
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d2404490a97be40ba4afcabd7ef292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayName: Experienced assasssin
+  DisplayName: Golden Knight
   MaxHealth: 10
   KillingPoints: 0.1
   HealthPerLevel: 110
@@ -151,7 +151,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e68b3bc3f1d5c6848a1eebe3c0a78372, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eab58ec3efe61a749abdff121efe8ec5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
